@@ -29,7 +29,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -139,33 +139,40 @@ that works under Win32 and Unix.
 
    calls gsapi_run_string_continue
   
-=item TIEHANDLE $class, [ stdin => &stdin, stdout => &stdout, stderr => stderr, args => [ arg1, arg2, ...]
+   =item TIEHANDLE $class, [ stdin => sub { getc STDIN }, ]
+                        [ stdout => &stdout, ]
+                        [ stderr => stderr, ]
+                        [ args => [ arg1, arg2, ...], ]
+                        [ user_errors => 0|1, ]
 
 =cut
 
 sub TIEHANDLE {
    my ($class,%args) = @_;
    my $inst = new_instance();
-   $args{stdin} ||= sub { <STDIN> };
+   $args{stdin} ||= sub { getc STDIN };
    $args{stdout} ||= sub { print STDOUT $_[0]; length $_[0] };
-   $args{stderr} ||= sub { print STDOUT $_[0]; length $_[0] };
+   $args{stderr} ||= sub { print STDERR $_[0]; length $_[0] };
    $args{args} ||= [];
+   $args{user_errors} ||= 0;
+   $args{inst} = $inst;
    set_stdio($inst, $args{stdin}, $args{stdout}, $args{stderr});
+   delete @args{qw/stdin stdout stderr/};
    init_with_args($inst, @{$args{args}});
-   run_string_begin($inst);
-   bless \$inst, $class;
+   run_string_begin($inst, $args{user_errors});
+   bless \%args, $class;
 }
 
 sub WRITE ($$$$) {
    my ($ref, $buf, $len, $offs) = @_;
-   run_string_continue($$ref, $buf, $len, $offs);
+   run_string_continue($ref->{inst}, substr($buf, 0, $len), $ref->{user_errors});
 }
 
 sub DESTROY ($) {
-   my $r = shift;
-   run_string_end($$r);
-   GSAPI::exit($$r);
-   delete_instance($$r);
+   my $inst = $_[0]->{inst};
+   run_string_end($inst, $_[0]->{user_errors});
+   GSAPI::exit($inst);
+   delete_instance($inst);
 }
 
 =back

@@ -1,4 +1,4 @@
-GSAPI version 0.1 (heavily untested)
+GSAPI version 0.2 (heavily untested)
 =================
 
 This module provides an interface to the gsapi
@@ -8,8 +8,7 @@ You normally won't need this module, it's far easier
 to pipe to gs under Unix.
 
 You need libgs - which is normally not available under
-most Linux Distributions - and you need the "iapi.h"
-header file somewhere in your PATH.
+most Linux Distributions - and the ghostscript header files.
 
 You normally want to use the tie-method, here an example:
 

@@ -7,6 +7,12 @@ ppport.h
 README
 t/1.t
 t/2.t
+t/3.t
+t/4.t
+t/5.t
+t/6.t
+t/7.t
+t/8.t
 typemap
 fallback/const-c.inc
 fallback/const-xs.inc
