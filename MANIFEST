@@ -1,0 +1,12 @@
+Changes
+GSAPI.pm
+GSAPI.xs
+Makefile.PL
+MANIFEST
+ppport.h
+README
+t/1.t
+t/2.t
+typemap
+fallback/const-c.inc
+fallback/const-xs.inc

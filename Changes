@@ -1,0 +1,6 @@
+Revision history for Perl extension GSAPI.
+
+0.1  Sun Oct 26 10:20:51 2003
+	- original version; created by h2xs 1.22 with options
+		-v0.1 -n GSAPI
+

@@ -1,0 +1,45 @@
+GSAPI version 0.1 (heavily untested)
+=================
+
+This module provides an interface to the gsapi
+functions of GNU Gostscript.
+
+You normally won't need this module, it's far easier
+to pipe to gs under Unix.
+
+You need libgs - which is normally not available under
+most Linux Distributions - and you need the "iapi.h"
+header file somewhere in your PATH.
+
+You normally want to use the tie-method, here an example:
+
+my $output;
+{ local *FH;
+   tie *FH, "GSAPI", stdout => sub { $output .= $_[0]; length $_[0]};
+   print FH "12345679 9 mul pstack quit\n";
+}
+
+ok($output =~ /111111111/);
+
+
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2003 by Stefan Traby <stefan@hello-penguin.com>
+Copyright (C) 2003 by KW-Computer Ges.m.b.H Graz, Austria.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License 2.0 or any later version.
+
+the reason why this module is not available under dual license (Artistic/GPL)
+is simply the fact that GNU Gostscript is only available under GPL and not
+under Artistic License.
