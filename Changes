@@ -1,5 +1,11 @@
 Revision history for Perl extension GSAPI.
 
+0.4 Wed May  4 09:25:41 MEST 2005
+       - added INSTALL
+
+0.3 Mon Dec 15 23:12:02 2003
+       - fix for non iso-c-99 ms-c compiler
+
 0.2 Mon Oct 27 00:01:08 2003
        - minor fixes
        

@@ -134,13 +134,15 @@ init_with_args(inst, ...)
   PROTOTYPE: $;@
   PREINIT:
         int i;
-        char *argv[items];
+        char **argv;
   CODE:
+        argv = (char **) malloc(items*sizeof(char *));
         for(i = 0; i < (items-1); i++) {
           argv[i] = SvPV(ST(i+1), PL_na);
         }
         argv[i] = 0;
         RETVAL = gsapi_init_with_args(inst, items -1, argv);
+        free(argv);
 OUTPUT:
         RETVAL
         

@@ -29,7 +29,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.2';
+our $VERSION = '0.4';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -187,8 +187,8 @@ Stefan Traby, E<lt>stefan@hello-penguin.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003 by Stefan Traby <stefan@hello-penguin.com>
-Copyright (C) 2003 by KW-Computer Ges.m.b.H Graz, Austria.
+Copyright 2003,2005 by Stefan Traby <stefan@hello-penguin.com>
+Copyright (C) 2003,2005 by KW-Computer Ges.m.b.H Graz, Austria.
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License 2.0 or any later version.

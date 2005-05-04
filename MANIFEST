@@ -14,5 +14,5 @@ t/6.t
 t/7.t
 t/8.t
 typemap
-fallback/const-c.inc
-fallback/const-xs.inc
+INSTALL
+META.yml                                 Module meta-data (added by MakeMaker)
