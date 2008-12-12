@@ -7,9 +7,9 @@ functions of GNU Gostscript.
 You normally won't need this module, it's far easier
 to pipe to gs under Unix.
 
-You need libgs - which is normally not available under
-most Linux Distributions - and the ghostscript header files,
-see INSTALL
+You need libgs - which is normally available under most Linux Distributions
+as ghostscript-devel or equivalent - and the ghostscript header files, see
+INSTALL.
 
 You normally want to use the tie-method, here an example:
 
@@ -34,6 +34,7 @@ To install this module type the following:
 
 COPYRIGHT AND LICENCE
 
+Copyright (C) 2008 by Philip Gwyn <gwyn-at-cpan.org>
 Copyright (C) 2003,2005 by Stefan Traby <stefan@hello-penguin.com>
 Copyright (C) 2003,2005 by KW-Computer Ges.m.b.H Graz, Austria.
 

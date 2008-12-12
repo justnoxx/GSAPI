@@ -1,5 +1,10 @@
 Revision history for Perl extension GSAPI.
 
+0.5 Tue Nov 18 16:42:28 MET 2008
+       - added gsapi_set_display_callback support (Philip Gwyn)
+       - documentation fixes (Philip Gwyn)
+       - various fixes (Philip Gwyn)
+
 0.4 Wed May  4 09:25:41 MEST 2005
        - added INSTALL
 
