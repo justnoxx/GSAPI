@@ -1,4 +1,3 @@
-use 5.008;
 use ExtUtils::MakeMaker;
 
 my $IDIR;
