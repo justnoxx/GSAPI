@@ -1,6 +1,4 @@
 package GSAPI;
-
-use 5.008;
 use strict;
 use warnings;
 use Carp;
@@ -107,7 +105,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.5';
+our $VERSION = '0.6';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
